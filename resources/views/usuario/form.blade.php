@@ -27,7 +27,7 @@
         
     </div>
     <div class=" form-group">
-        <label for="Rut">Rut</label>
+        <label for="Rut">Rut (formato 12345678-9)</label>
         <input type="text" class="form-control" name="rut" value="{{ isset($empleado->rut)?$empleado->rut:old('rut')}}" id="rut">
         
     </div>
@@ -42,7 +42,7 @@
         
     </div>
     <div class=" form-group">
-        <label for="Fecha">Fecha</label>
+        <label for="Fecha">Fecha de Ingreso</label>
         <input type="date" class="form-control" name="fecha_ingreso" value="{{ isset($empleado->fecha_ingreso)?$empleado->fecha_ingreso:old('fecha_ingreso') }}" id="fecha_ingreso">
         <br>
     </div>   

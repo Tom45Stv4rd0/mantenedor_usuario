@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nombre');            
             $table->string('mail');
             $table->string('password');
-            $table->integer('rut');
+            $table->string('rut');
             $table->integer('edad');
             $table->string('cargo');
             $table->date('fecha_ingreso');
