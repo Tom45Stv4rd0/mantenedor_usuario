@@ -2,8 +2,16 @@
 @section('content')
 <div class="container">
 @if(Session::has('mensaje'))
-{{ Session::get('mensaje') }}
+<div class="alert alert-success alert-dismissible" role="alert">
+    
+    {{ Session::get('mensaje') }}
+    
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" >
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
 @endif
+
 <a href="{{ url('usuario/create') }}" class="btn btn-success">Registrar Nuevo Usuario</a>
 
 <table class="table table-light">
@@ -29,7 +37,7 @@
             <td>{{ $empleado->nombre}}</td>
             <td>{{ $empleado->mail}}</td>
             <td>{{ $empleado->password}}</td>
-            <td>{{ $empleado-> rut}}</td>
+            <td>{{ $empleado->rut}}</td>
             <td>{{ $empleado->edad}}</td>
             <td>{{ $empleado->cargo}}</td>
             <td>{{ $empleado->fecha_ingreso}}</td>
@@ -40,7 +48,7 @@
                 <form action="{{ url('/usuario/'.$empleado->id ) }}" class="d-inline" method="post">
                     @csrf
                     {{ method_field('DELETE') }}
-                    <input class="btn btn-danger" type="submit" onclick="return confirm('¿Quieres borrar el registro?')" value="Borar">
+                    <input class="btn btn-danger" type="submit" onclick="return confirm('¿Quieres borrar el registro?')" value="Borrar">
                 </form>
             </td>
             

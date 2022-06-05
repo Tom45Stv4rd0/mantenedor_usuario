@@ -38,8 +38,22 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        //        
-        //$datosEmpleado = request()->all();
+        //
+        $campos=[
+            'nombre'=>"required|string|max:120",
+            'mail'=>'required|email', 
+            'password'=>'required|min:8|max:12',
+            
+            
+        ];
+        $mensaje=[
+            'required'=>'el :attribute es requerido',
+            'email.required'=>'el mail es requerido',
+            'password.required'=>'la contraseña no debe ser menor a 8 y mayor a 12',
+            
+        ];
+        $this->validate($request, $campos,$mensaje);
+
         $datosEmpleado = request()->except('_token');
         Empleado::insert($datosEmpleado);
         //return response()->json($datosEmpleado);
@@ -80,10 +94,26 @@ class EmpleadoController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $campos=[
+            'nombre'=>"required|string|max:120",
+            'mail'=>'required|email', 
+            'password'=>'required|min:8|max:12',
+            
+            
+        ];
+        $mensaje=[
+            'required'=>'el :attribute es requerido',
+            'email.required'=>'el mail es requerido',
+            'password.required'=>'la contraseña no debe ser menor a 8 y mayor a 12',
+            
+        ];
+        $this->validate($request, $campos,$mensaje);
+
         $datosEmpleado = request()->except(['_token','_method']);
         Empleado::where('id','=',$id)->update($datosEmpleado);
         $empleado=Empleado::findOrFail($id);
-        return view('usuario.edit', compact('empleado'));
+        //return view('usuario.create', compact('empleado'));
+        return redirect ('usuario')->with('mensaje','Usuario Modificado');
     }
 
     /**
