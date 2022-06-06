@@ -20,11 +20,12 @@
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close" >
                     <span aria-hidden="true">&times;</span>
                 </button>
+                
             </div>
             @endif
 
-            <a href="{{ url('usuario/create') }}" class="btn btn-success">Registrar Nuevo Usuario</a>
-
+            <a href="{{ url('usuario/create') }}" class="btn btn-success">Registrar Nuevo Usuario</a>           
+            
             <table class="table table-light">
                 <thead class="thead-light">
                     <tr>
